@@ -1,0 +1,32 @@
+<% layout('/layouts/boilerplate') -%>
+
+<div class="row mt-3">
+    <h1 class="col-6 offset-3">SignUp for Wanderlust</h1>
+    <div class="col-6 offset-3">
+        <form action="/signup" method="post" class="needs-validation signup-form" novalidate>
+            <div class="mb-3 signup-username">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" placeholder="Enter Username" class="form-control" required>
+                <div class="invalid-feedback">Please enter a username</div>
+                <div class="valid-feedback">User looks good</div>
+            </div>
+            <div class="mb-3 signup-email">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" placeholder="Enter email" class="form-control" required>
+                <div class="invalid-feedback">Please enter a email</div>
+            </div>
+            <div class="mb-3 signup-password">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="Enter password" class="form-control" required>
+                <div class="invalid-feedback">Please enter a password</div>
+            </div>
+            <!-- <div class="mb-3 signup-conf-pass">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" class="form-control" required>
+                <div class="invalid-feedback">Please confirm password</div>
+                <div class="invalid-feedback validate-conf-pass">Password and Confirm password didn't match</div>
+            </div> -->
+            <button class="btn btn-success">SignUp</button>
+        </form>
+    </div>
+</div>

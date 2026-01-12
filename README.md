@@ -297,7 +297,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Prince Kumar**
 
 - GitHub: [@Princekr267](https://github.com/Princekr267)
-- LinkedIn: [Prince Kumar](https://linkedin.com/in/prince-kumar)
+- LinkedIn: [Prince Kumar](https://linkedin.com/in/prince-kumar-27a12b315)
 - Email: princekrr267@gmail.com
 
 ## 🙏 Acknowledgments

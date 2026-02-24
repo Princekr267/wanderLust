@@ -300,6 +300,11 @@
       align-items: center;
       z-index: 1000;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .bottom-navbar.hidden {
+      transform: translateY(100%);
     }
 
     .bottom-nav-item {
@@ -522,4 +527,23 @@
 
   handleResize();
   window.addEventListener('resize', handleResize);
+
+  // --- Scroll-hide bottom navbar on mobile ---
+  const bottomNavbar = document.querySelector('.bottom-navbar');
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth > 480 || !bottomNavbar) return;
+
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 60) {
+      // Scrolling DOWN — hide the nav
+      bottomNavbar.classList.add('hidden');
+    } else {
+      // Scrolling UP — show the nav
+      bottomNavbar.classList.remove('hidden');
+    }
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
 </script>

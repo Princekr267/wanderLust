@@ -67,6 +67,9 @@
             <input type="radio" id="first-rate5" name="review[rating]" value="5" />
             <label for="first-rate5" title="Amazing">5 stars</label>
         </fieldset>
+      <div id="rating-error" style="display:none; color:#dc3545; font-size:0.875rem; margin-top:0.25rem;">
+        Please select a star rating before submitting.
+      </div>
     </div>
     <div class="mb-3 mt-3">
       <label for="comment" class="form-label">Comments</label>
@@ -82,6 +85,34 @@
     </div>
     <button class="btn btn-outline-dark">Submit</button>
   </form>
+
+  <script>
+    (function () {
+      const reviewForm = document.querySelector('form[action*="/reviews"]');
+      const noRate = document.getElementById('no-rate');
+      const starInputs = reviewForm.querySelectorAll('input[name="review[rating]"]:not(#no-rate)');
+      const ratingError = document.getElementById('rating-error');
+      let ratingSelected = false;
+
+      // Mark as selected when user clicks a real star
+      starInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          ratingSelected = true;
+          ratingError.style.display = 'none';
+        });
+      });
+
+      reviewForm.addEventListener('submit', function (e) {
+        if (!ratingSelected || noRate.checked) {
+          e.preventDefault();
+          e.stopPropagation();
+          ratingError.style.display = 'block';
+          ratingError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    })();
+  </script>
+
   <hr />
   <% } %>
   <p><b>All Reviews</b></p>
